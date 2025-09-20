@@ -1,0 +1,129 @@
+# Python-specific
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+*.egg
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django-specific
+*.log
+*.pot
+*.sqlite3
+migrations/
+media/
+staticfiles/
+*.env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Environment variables and secrets
+.env
+*.env.*
+!.env.example
+!.env.vault
+secrets.json
+credentials.json
+
+# IDE and editor files
+.idea/
+*.iml
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+*.swp
+*.swo
+
+# Testing and coverage
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.tox/
+.pytest_cache/
+htmlcov/
+covhtml/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Local development
+local_settings.py
+settings/local.py
+settings/dev.py
+*.bak
+*.backup
+*.tmp
+
+# Virtual environment
+venv/
+virtualenv/
+.venv/
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Database dumps
+*.sql
+*.sql.gz
+*.dump
+
+# Documentation build
+docs/_build/
+docs/build/
+
+# Static and media files
+static/
+media/
+
+# Miscellaneous
+*.pid
+*.seed
+*.rdb
+*.db
+*.log.*
+*.bak
+*.dat
+*.dir
+*.pid
+*.seed
+*.rdb
+*.tar.gz
+*.zip
+
+# macOS-specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows-specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Jupyter notebooks
+*.ipynb_checkpoints/
+
+# Package manager caches
+.pip_cache/
+.pypirc
