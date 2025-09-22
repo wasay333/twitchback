@@ -1,12 +1,10 @@
 from rest_framework.response import Response
 from rest_framework import status
-
-from api.services.channels import TwitchChannelService  # Import TwitchChannelService
-from api.services.streams import TwitchStreamService  # Import TwitchStreamService
+from api.services.channels import TwitchChannelService   
+from api.services.streams import TwitchStreamService  
 from api.services.errors import TwitchAPIError
-
 from .base import BaseView
-from ..serializers import SearchChannelResponseSerializer, ChannelLiveResponseSerializer
+from ..serializers import SearchChannelResponseSerializer, ChannelLiveResponseSerializer, StreamResponseSerializer
 
 class SearchChannelsView(BaseView):
     """API view for searching channels"""

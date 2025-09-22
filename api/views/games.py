@@ -1,10 +1,8 @@
 from rest_framework.response import Response
 from rest_framework import status
-
-from api.services.categories import TwitchCategoryService  # Import TwitchCategoryService
-from api.services.streams import TwitchStreamService  # Import TwitchStreamService
+from api.services.categories import TwitchCategoryService 
+from api.services.streams import TwitchStreamService   
 from api.services.errors import TwitchAPIError
-
 from .base import BaseView
 from ..serializers import SearchGameResponseSerializer, StreamResponseSerializer
 

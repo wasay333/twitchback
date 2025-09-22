@@ -51,6 +51,7 @@ class SidebarStreamSerializer(serializers.Serializer):
     thumbnail_url = serializers.URLField()
     thumbnail = StreamThumbnailSerializer()
     stream_url = serializers.URLField()
+    hls_url = serializers.URLField(required=False, allow_null=True) 
 
 class SidebarResponseSerializer(serializers.Serializer):
     """Serializer for sidebar stream response with pagination"""

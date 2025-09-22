@@ -6,8 +6,10 @@ from django.views import View
 
 class HomeView(View):
     """Home view for the API"""
-    
+ 
+
     def get(self, request):
+   
         return JsonResponse({
             'message': 'Twitch API Service',
             'version': '1.0',
@@ -22,6 +24,8 @@ class HomeView(View):
         })
 
 @api_view(['GET'])
+
+
 def health_check(request):
     """Health check endpoint"""
     return Response({

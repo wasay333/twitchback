@@ -4,8 +4,7 @@ import logging
 from api.services.channels import TwitchChannelService
 from .base import TwitchAPIBaseService
 from .errors import TwitchAPIError
-from .streamlink import StreamlinkService  # Import StreamlinkService
-from django.conf import settings  # For optional OAuth token
+from .streamlink import StreamlinkService 
 
 logger = logging.getLogger(__name__)
 

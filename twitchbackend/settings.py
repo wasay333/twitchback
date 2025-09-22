@@ -13,18 +13,15 @@ TWITCH_ACCESS_TOKEN = config('TWITCH_ACCESS_TOKEN')
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%ghw68!l(_pfw_pg&3+6*i%8@)qt4o4!$r)-nh1n^%vhssmit!'
+SECRET_KEY = config("SECRET_KEY", default="dev-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", cast=bool, default=True)
 
-ALLOWED_HOSTS = []
-
-
+# ...existing code...
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=lambda v: [s.strip() for s in v.split(',')], default=["*"])
 # Application definition
 
 INSTALLED_APPS = [
@@ -62,14 +59,15 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20
+    'PAGE_SIZE': 20,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+
 }
 
 # CORS settings (if using django-cors-headers)
 CORS_ALLOW_ALL_ORIGINS = True  # Only for development
 # For production, specify allowed origins:
 # CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
 #     "https://yourdomain.com",
 # ]
 ROOT_URLCONF = 'twitchbackend.urls'
@@ -127,20 +125,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Karachi'
 
 USE_I18N = True
 
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGGING = {
@@ -156,6 +150,7 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
+            'level': 'DEBUG',
         },
         'file': {
             'class': 'logging.handlers.RotatingFileHandler',
@@ -163,6 +158,8 @@ LOGGING = {
             'maxBytes': 5 * 1024 * 1024,  # 5 MB
             'backupCount': 5,             # Keep last 5 log files
             'formatter': 'verbose',
+            'level': 'INFO',
+
         },
     },
     'root': {
